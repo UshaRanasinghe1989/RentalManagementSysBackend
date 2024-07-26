@@ -40,4 +40,10 @@ public class CustomerController {
     void delete(@RequestBody Customer customer){
         service.delete(customer);
     }
+
+    @GetMapping("/{customerName}")
+    Customer findByCustomerName(@PathVariable String customerName){
+        System.out.println(customerName);
+        return service.findByCustomerName(customerName);
+    }
 }

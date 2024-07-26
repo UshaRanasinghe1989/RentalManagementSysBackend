@@ -51,4 +51,11 @@ public class CustomerServiceImpl implements CustomerService {
     public void delete(Customer customer) {
         repository.deleteById(customer.getId());
     }
+
+    @Override
+    public Customer findByCustomerName(String customerName) {
+        CustomerEntity byCustomerName = repository.findByCustomerName(customerName);
+        System.out.println(byCustomerName.toString());
+        return mapper.convertValue(byCustomerName, Customer.class);
+    }
 }
