@@ -8,4 +8,6 @@ public interface CustomerService {
     Customer persist(Customer addCustomer);
 
     List<Customer> retrieve();
+
+    Customer update(Customer updateCustomer);
 }

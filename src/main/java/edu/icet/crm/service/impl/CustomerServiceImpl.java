@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -33,5 +34,16 @@ public class CustomerServiceImpl implements CustomerService {
             customerList.add(mapper.convertValue(entity, Customer.class));
         }
         return customerList;
+    }
+
+    @Override
+    public Customer update(Customer customer) {
+        Optional<CustomerEntity> byId = repository.findById(customer.getId());
+
+        CustomerEntity entity = null;
+        if (byId.isPresent()) {
+            entity = repository.save(mapper.convertValue(customer, CustomerEntity.class));
+        }
+        return mapper.convertValue(entity, Customer.class);
     }
 }

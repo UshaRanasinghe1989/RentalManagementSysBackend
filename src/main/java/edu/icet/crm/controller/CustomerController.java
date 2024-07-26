@@ -30,4 +30,9 @@ public class CustomerController {
     List<Customer> retrieve(){
         return service.retrieve();
     }
+
+    @PutMapping()
+    Customer update(@RequestBody Customer customer){
+        return service.update(customer);
+    }
 }
