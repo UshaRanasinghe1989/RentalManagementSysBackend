@@ -9,6 +9,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -19,5 +22,16 @@ public class CustomerServiceImpl implements CustomerService {
     public Customer persist(Customer customer) {
         CustomerEntity savedObj = repository.save(mapper.convertValue(customer, CustomerEntity.class));
         return mapper.convertValue(savedObj, Customer.class);
+    }
+
+    @Override
+    public List<Customer> retrieve() {
+        Iterable<CustomerEntity> all = repository.findAll();
+        List<Customer> customerList = new ArrayList<>();
+
+        for (CustomerEntity entity:all){
+            customerList.add(mapper.convertValue(entity, Customer.class));
+        }
+        return customerList;
     }
 }

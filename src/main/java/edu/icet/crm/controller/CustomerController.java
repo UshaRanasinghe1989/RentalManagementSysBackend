@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @CrossOrigin
 @RequestMapping("/customer")
@@ -22,5 +24,10 @@ public class CustomerController {
                 .contactNo(customer.getContactNo())
                 .build();
         return service.persist(addCustomer);
+    }
+
+    @GetMapping()
+    List<Customer> retrieve(){
+        return service.retrieve();
     }
 }
