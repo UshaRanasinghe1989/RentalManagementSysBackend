@@ -14,7 +14,8 @@ public class CustomerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String name;
+    @Column(name = "name")
+    private String customerName;
     private String city;
     @Column(name = "contact_no")
     private String contactNo;
