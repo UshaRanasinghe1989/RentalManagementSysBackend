@@ -46,4 +46,9 @@ public class CustomerServiceImpl implements CustomerService {
         }
         return mapper.convertValue(entity, Customer.class);
     }
+
+    @Override
+    public void delete(Customer customer) {
+        repository.deleteById(customer.getId());
+    }
 }

@@ -35,4 +35,9 @@ public class CustomerController {
     Customer update(@RequestBody Customer customer){
         return service.update(customer);
     }
+
+    @DeleteMapping()
+    void delete(@RequestBody Customer customer){
+        service.delete(customer);
+    }
 }

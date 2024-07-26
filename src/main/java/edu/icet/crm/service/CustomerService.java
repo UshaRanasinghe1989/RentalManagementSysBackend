@@ -10,4 +10,6 @@ public interface CustomerService {
     List<Customer> retrieve();
 
     Customer update(Customer updateCustomer);
+
+    void delete(Customer customer);
 }
