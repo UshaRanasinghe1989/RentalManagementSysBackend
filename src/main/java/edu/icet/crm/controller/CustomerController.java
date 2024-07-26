@@ -43,7 +43,6 @@ public class CustomerController {
 
     @GetMapping("/{customerName}")
     Customer findByCustomerName(@PathVariable String customerName){
-        System.out.println(customerName);
         return service.findByCustomerName(customerName);
     }
 }

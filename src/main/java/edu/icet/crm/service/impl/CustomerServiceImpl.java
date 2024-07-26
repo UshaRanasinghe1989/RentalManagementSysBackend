@@ -55,7 +55,6 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Customer findByCustomerName(String customerName) {
         CustomerEntity byCustomerName = repository.findByCustomerName(customerName);
-        System.out.println(byCustomerName.toString());
         return mapper.convertValue(byCustomerName, Customer.class);
     }
 }
